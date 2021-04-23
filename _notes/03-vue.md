@@ -27,10 +27,22 @@ Instell vs code extension Vetur
 
 ## 3-6 更近一步 - reactive (10:14)
 ```
-  toRefs
+  toRefs(obj)
 ```
 ## 3-7 vue3 响应式对象的新花样 (06:51)
+```
+  Object.defineProperty(data, 'count', {
+    get(){},
+    set(){}
+  })
+```
 
+```
+  new Proxy(data, {
+    get(){},
+    set(key, value){}
+  })
+```
 ## 3-8 老瓶新酒 - 生命周期 (07:00)
 
 ## 3-9 侦测变化 - watch (07:16)
