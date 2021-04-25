@@ -17,8 +17,17 @@
 # 4-6 ColumnList 组件使用 Bootstrap 美化 (09:56)
 
 # 4-7 GlobalHeader 组件编码 (08:29)
+```
+  v-if
 
+  v-else
+
+```
 # 4-8 Dropdown 组件基本功能编码 (08:41)
+Use bootstrap Dropdown
+https://getbootstrap.com/docs/4.0/components/dropdowns/
+
+
 
 # 4-9 Dropdown 组件添加 DropdownItem (08:16)
 
