@@ -9,7 +9,7 @@
 
 <script lang="ts">
 import { defineComponent, ref, watch } from 'vue'
-// import useClickOutside from '../hooks/useClickOutside'
+import useClickOutside from '../hooks/useClickOutside'
 export default defineComponent({
   name: 'Dropdown',
   props: {
@@ -19,22 +19,33 @@ export default defineComponent({
     }
   },
   setup () {
-    // const isOpen = ref(false)
-    // const dropdownRef = ref<null | HTMLElement>(null)
-    // const toggleOpen = () => {
-    //   isOpen.value = !isOpen.value
-    // }
-    // const isClickOutSide = useClickOutside(dropdownRef)
-    // watch(isClickOutSide, () => {
-    //   if (isOpen.value && isClickOutSide.value) {
-    //     isOpen.value = false
+    const isOpen = ref(false)
+    const dropdownRef = ref<null | HTMLElement>(null)
+    const toggleOpen = () => {
+      isOpen.value = !isOpen.value
+    }
+
+    // -- basic solution
+    // const handler = (e: MouseEvent) => {
+    //   if (dropdownRef.value){
+    //     if (!dropdownRef.value.contains(e.target as HTMLElement) && isOpen.value) {
+    //       isOpen.value = false;
+    //     }
     //   }
-    // })
-    // return {
-    //   dropdownRef,
-    //   isOpen,
-    //   toggleOpen
     // }
+
+    const isClickOutSide = useClickOutside(dropdownRef)
+    // watch
+    watch(isClickOutSide, () => {
+      if (isOpen.value && isClickOutSide.value) {
+        isOpen.value = false
+      }
+    })
+    return {
+      dropdownRef,
+      isOpen,
+      toggleOpen
+    }
   }
 })
 </script>
